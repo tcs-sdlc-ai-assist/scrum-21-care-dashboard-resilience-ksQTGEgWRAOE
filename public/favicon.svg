@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Care shield</title>
+  <desc id="description">A shield containing a health cross</desc>
+  <path fill="#075985" d="M32 3 55 12v17c0 15-9.6 26.7-23 32C18.6 55.7 9 44 9 29V12L32 3Z"/>
+  <path fill="#fff" d="M27 17h10v10h10v10H37v10H27V37H17V27h10V17Z"/>
+</svg>

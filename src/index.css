@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    min-width: 20rem;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-canvas font-sans text-content antialiased;
+  }
+
+  .dark body {
+    @apply bg-canvas-inverse text-content-inverse;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button,
+  [role='button'],
+  select {
+    touch-action: manipulation;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+
+  table {
+    max-width: 100%;
+  }
+
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid theme('colors.focus.DEFAULT');
+    outline-offset: 3px;
+  }
+
+  :where([disabled], [aria-disabled='true']) {
+    cursor: not-allowed;
+  }
+
+  ::selection {
+    background-color: theme('colors.care.200');
+    color: theme('colors.content.DEFAULT');
+  }
+
+  .dark ::selection {
+    background-color: theme('colors.care.700');
+    color: theme('colors.content.inverse');
+  }
+
+  #main-content {
+    scroll-margin-top: 1rem;
+  }
+
+  #main-content:focus {
+    outline: none;
+  }
+}
+
+@layer components {
+  [data-status] {
+    forced-color-adjust: auto;
+  }
+
+  [role='alert'],
+  [role='alertdialog'],
+  [role='status'] {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 3px;
+  }
+
+  [data-status] {
+    border: 1px solid CanvasText;
+  }
+}
+
+@media print {
+  :root,
+  :root.dark {
+    color-scheme: light;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  html,
+  body {
+    min-width: 0;
+    background: #fff !important;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  button,
+  [role='button'],
+  nav,
+  form {
+    display: none !important;
+  }
+
+  [role='alert'],
+  [role='note'],
+  [role='status'],
+  [data-status] {
+    border: 1px solid #000 !important;
+  }
+
+  section,
+  article,
+  aside,
+  table,
+  tr,
+  figure {
+    break-inside: avoid;
+  }
+
+  header,
+  footer,
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+}
